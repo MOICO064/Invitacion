@@ -21,7 +21,7 @@
         align-items: center;
         background: rgb(255, 245, 248);
         background: radial-gradient(circle, rgba(255, 245, 248, 1) 48%, rgba(235, 142, 163, 1) 94%);
-        
+
     }
 
     .tapa-container {
@@ -444,7 +444,7 @@
     }
 
     .invitacion {
-        border: #FF0094 solid 2px;    
+        border: #FF0094 solid 2px;
         border-radius: 30px;
         background-image: url('resources/imagenes/img/textura-pergamino.avif');
         padding: 10px;
@@ -547,6 +547,7 @@
         flex-direction: column;
         align-items: center;
     }
+
     .text-pink {
         color: #FF0094;
         text-align: center;
@@ -559,6 +560,42 @@
     .espero {
         margin-bottom: 40px;
     }
+
+    /* Estilo para el anuncio flotante */
+    .anuncio-flotante {
+        display: block;
+        position: fixed;
+        bottom: 20px;
+        /* Ajusta la posición desde la parte inferior */
+        left: 10%;
+        transform: translateX(-10%);
+        font-size: 16px;
+        z-index: 1000;
+        /* Asegura que se muestre por encima de otros elementos */
+    }
+
+    /* Estilo para la flecha */
+    /* Estilo para la flecha */
+    .flecha {
+        width: 30px;
+        /* Asegura que la flecha sea un bloque en línea para aplicar animación */
+    }
+
+    /* Añadir animación para hacerla más llamativa (opcional) */
+    .anuncio-flotante img {
+        animation: fadeIn 1.5s ease-in-out infinite;
+    }
+
+    @keyframes fadeIn {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
     /* Responsividad para pantallas pequeñas */
     @media (max-width: 768px) {
         .boton {

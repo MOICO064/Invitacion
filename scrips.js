@@ -1,7 +1,7 @@
 let currentIndex = 0;
 const ventanas = document.querySelectorAll('.ventana');
-
-
+const flecha = document.getElementById('flecha');
+flecha.style.display = 'none';
 // Función para mostrar la ventana siguiente (deslizar hacia arriba)
 function siguienteVentana() {
     // Si no estamos en la última ventana, cambiamos a la siguiente
@@ -15,6 +15,9 @@ function siguienteVentana() {
         // Hacemos visible la siguiente ventana
         ventanas[currentIndex].classList.remove('hidden');
         ventanas[currentIndex].classList.add('visible');
+        if (currentIndex < ventanas.length - 1) {
+            flecha.style.display = 'inline-block';
+        }
         if (currentIndex === 1) {
             mostrarNombreYApellido();
         }
@@ -38,6 +41,9 @@ function ventanaAnterior() {
         // Hacemos visible la ventana anterior
         ventanas[currentIndex].classList.remove('hidden');
         ventanas[currentIndex].classList.add('visible');
+        if (currentIndex < ventanas.length - 1) {
+            flecha.style.display = 'inline-block';
+        }
     }
 }
 
@@ -95,6 +101,7 @@ function abrirTapa() {
         // Inicializar la primera ventana como visible
         ventanas[currentIndex].classList.remove('hidden');
         ventanas[currentIndex].classList.add('visible');
+        flecha.style.display = 'inline-block';
         animateTitle(); // Se ejecuta cada 50 segundos
     }, 500);
 }
@@ -182,9 +189,14 @@ function ventana3() {
     showWord();
 }
 
+// Si estamos en la última ventana, ocultamos la flecha
+function chequearUltimaVentana() {
+    if (currentIndex === ventanas.length - 1) {
+        flecha.style.display = 'none';  // Ocultar la flecha en la última ventana
+    }
+}
 
-
-
+setInterval(chequearUltimaVentana, 100);
 
 
 
