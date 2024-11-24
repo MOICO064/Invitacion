@@ -1,0 +1,613 @@
+    @font-face {
+        font-family: 'Lovely Font';
+        src: url('resources/text/sweet_purple/sweet\ purple.otf') format('truetype');
+        /* Ruta hacia tu archivo */
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body,
+    html {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: rgb(255, 245, 248);
+        background: radial-gradient(circle, rgba(255, 245, 248, 1) 48%, rgba(235, 142, 163, 1) 94%);
+        
+    }
+
+    .tapa-container {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+
+    .tapa {
+        position: absolute;
+        top: 0;
+        height: 100%;
+        transition: transform 2s ease;
+    }
+
+    .izquierda {
+        left: 0;
+        width: 60%;
+        border-radius: 0 8% 8% 0;
+        background: #f8d4df;
+    }
+
+    .derecha {
+        right: 0;
+        width: 60%;
+        border-radius: 8% 0 0 8%;
+        background: rgb(209, 116, 134);
+        /* Color de la tapa derecha */
+    }
+
+    .abierta-derecha {
+        transform: translateX(101%);
+    }
+
+    .abierta-izquierda {
+        transform: translateX(-101%);
+    }
+
+    /* Botón redondo */
+    .boton {
+        width: 10%;
+        position: absolute;
+        top: 40%;
+        left: 35%;
+        transform: translate(-50%, -50%);
+        padding: 0;
+        background: none;
+        border: 2px solid rgb(236, 41, 142);
+        border-radius: 50%;
+        cursor: pointer;
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        animation: crecer 1.5s infinite ease-in-out;
+        /* Aplicamos la animación */
+    }
+
+    .boton img {
+        width: 100%;
+        height: auto;
+    }
+
+    /* Definimos la animación */
+    @keyframes crecer {
+
+        0%,
+        100% {
+            transform: scale(1);
+            /* Tamaño original */
+        }
+
+        50% {
+            transform: scale(1.2);
+            /* Tamaño aumentado */
+        }
+    }
+
+
+    /* Ventanas rotativas */
+    .ventanas-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+
+    .ventana {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: transparent;
+        display: flex;
+        flex-direction: column;
+        /* Distribuye los elementos en columna */
+        justify-content: space-between;
+        /* Centra los elementos verticalmente */
+        align-items: center;
+        /* Centra los elementos horizontalmente */
+        color: white;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 4s ease, transform 4s ease;
+    }
+
+    .birrete img {
+        width: 200px;
+        /* Tamaño inicial de la imagen */
+        height: auto;
+        transition: transform 0.5s ease-in-out;
+        /* Transición suave cuando se aplique el transform */
+        animation: tamaño-birrete 0.9s infinite;
+        /* Llama a la animación */
+        margin: 50px;
+    }
+
+    /* Definir la animación */
+    @keyframes tamaño-birrete {
+        0% {
+            transform: scale(1);
+            /* Tamaño normal */
+        }
+
+        50% {
+            transform: scale(1.2);
+            /* Aumenta el tamaño a 1.5 veces */
+        }
+
+        100% {
+            transform: scale(1);
+            /* Vuelve al tamaño normal */
+        }
+    }
+
+    .ventana.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .ventana.hidden {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    .año {
+        margin-bottom: 100px;
+        font-size: 4rem;
+        color: black;
+        display: inline-block;
+        opacity: 0;
+        /* Inicialmente oculto */
+        transform: translateX(-100%);
+        /* Empuja el texto fuera de la pantalla a la izquierda */
+        animation: aparecerDeIzquierda 4s forwards;
+        /* Aplica la animación */
+
+        /* Efecto de sombra 3D */
+        text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2),
+            -3px -3px 5px rgba(0, 0, 0, 0.2),
+            3px -3px 5px rgba(0, 0, 0, 0.2),
+            -3px 3px 5px rgba(0, 0, 0, 0.2);
+        /* Sombra en varias direcciones para el efecto 3D */
+    }
+
+    /* Definición de la animación */
+    @keyframes aparecerDeIzquierda {
+        0% {
+            opacity: 0;
+            /* Inicia invisible */
+            transform: translateX(-100%);
+            /* Empuja el texto fuera de la pantalla, a la izquierda */
+        }
+
+        100% {
+            opacity: 1;
+            /* Se hace completamente visible */
+            transform: translateX(0);
+            /* Llega a su posición original */
+        }
+    }
+
+
+    .title,
+    .title1 {
+        margin: auto;
+        font-family: 'Sweet Purple', cursive;
+        text-transform: uppercase;
+        text-align: center;
+        color: #D86781;
+        font-size: 4rem;
+        white-space: nowrap;
+        /* Evita que las letras salten de línea */
+        font-weight: 700;
+        /* Hacer la letra más gruesa */
+        text-shadow: 4px 0px 6px rgba(0, 0, 0, 0.5);
+        /* Sombra desplazada a la derecha */
+    }
+
+    .letter {
+        display: inline-block;
+        /* Permite animación individual */
+        opacity: 0;
+        /* Comienza invisible */
+        transform: translateX(-10px);
+        /* Desplazada ligeramente a la izquierda */
+        animation: appear 0.6s forwards;
+        /* Aparece con animación */
+    }
+
+    /* Animación para hacer aparecer cada letra */
+    @keyframes appear {
+        to {
+            opacity: 1;
+            transform: translateX(0);
+            /* Regresa a su posición */
+        }
+    }
+
+    /* Ventana 2*/
+    /* Contenedor del graduado */
+    .graduado {
+        margin-top: 100px;
+        display: flex;
+        /* Flexbox para alinear los elementos */
+        flex-direction: column;
+        /* Alinea los elementos en columna (uno debajo del otro) */
+        justify-content: center;
+        /* Centra verticalmente */
+        align-items: center;
+        /* Centra horizontalmente */
+        text-align: center;
+        /* Centra el texto de los nombres y apellidos */
+    }
+
+    .imagen-graduado {
+        width: 250px;
+        /* Ajusta el tamaño de la imagen */
+        height: 250px;
+        /* Ajusta el tamaño de la imagen */
+        border-radius: 50%;
+        /* Hace la imagen redonda */
+        border: 5px solid #ffc0cb;
+        /* Borde rosado */
+        object-fit: cover;
+        /* Mantiene las proporciones de la imagen */
+    }
+
+    /* Animación para el nombre */
+    .nombre {
+        margin-top: 50px;
+        font-family: 'Lovely Font', cursive;
+        font-size: 4rem;
+        font-weight: bold;
+        color: #ff4081;
+        display: flex;
+        justify-content: center;
+        gap: 2px;
+        /* Espacio entre letras */
+    }
+
+    .apellidos {
+        font-family: 'Lovely Font', cursive;
+        font-size: 4rem;
+        font-weight: bold;
+        color: #ff4081;
+        display: flex;
+        justify-content: center;
+        gap: 2px;
+        /* Espacio entre letras */
+
+    }
+
+    /* Estilo base para las letras */
+    .letra {
+        display: inline-block;
+        /* Cada letra actúa como un bloque individual */
+        opacity: 0;
+        /* Comienza invisible */
+        transform: translateY(20px);
+        /* Desplazada hacia abajo */
+        transition: opacity 0.5s ease, transform 0.5s ease;
+        /* Suavidad en la aparición */
+    }
+
+    /* Cuando una letra es visible */
+    .letra.visible {
+        opacity: 1;
+        /* Se hace visible */
+        transform: translateY(0);
+        /* Vuelve a su posición original */
+    }
+
+
+    /* Globos en la parte inferior de la pantalla */
+    .globos {
+        position: fixed;
+        bottom: 0;
+        width: 70%;
+        display: flex;
+        justify-content: center;
+        /* Espacio entre los globos */
+        /* Asegura que estén visibles */
+    }
+
+    .globo {
+        width: 20%;
+        animation: flotar 6s ease-in-out infinite;
+    }
+
+    /* Animación de los globos */
+    @keyframes flotar {
+        0% {
+            transform: translateY(0);
+        }
+
+        50% {
+            transform: translateY(-20px);
+            /* Suben un poco */
+        }
+
+        100% {
+            transform: translateY(0);
+        }
+    }
+
+    /* Imagen superior */
+    .toga {
+        margin-top: 20px;
+        width: 180px;
+        animation: parpadeo 2s ease-in-out infinite;
+        /* La animación dura 5 segundos y se repite infinitamente */
+        transform-origin: center;
+    }
+
+    @keyframes parpadeo {
+        0% {
+            opacity: 1;
+            /* Totalmente visible */
+        }
+
+        50% {
+            opacity: 0.5;
+            /* Totalmente invisible */
+        }
+
+        100% {
+            opacity: 1;
+            /* Vuelve a ser visible */
+        }
+    }
+
+    /* Texto centrado */
+    .pergamino {
+        position: relative;
+        background-color: #F8D4DF;
+        /* Color del pergamino */
+        border: 2px solid #D17486;
+        /* Borde del pergamino */
+        padding: 40px;
+        width: 80%;
+        max-width: 600px;
+        text-align: center;
+        border-radius: 20px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        background-image: url('resources/imagenes/img/textura-pergamino.avif');
+        /* Opcional: Textura de pergamino */
+        background-size: cover;
+        background-position: center;
+        overflow: hidden;
+    }
+
+    .mensaje {
+        font-size: 1.29rem;
+        color: #FF0094;
+        font-family: 'Georgia', serif;
+        line-height: 1.6;
+        margin: 0;
+        visibility: hidden;
+    }
+
+    .mensaje span {
+        opacity: 0;
+        display: inline-block;
+        margin-right: 2px;
+        /* Espacio entre las palabras */
+        margin-bottom: 2px;
+        /* Espacio adicional para los saltos de línea */
+    }
+
+    .mensaje span.show {
+        opacity: 1;
+        transition: opacity 0.5s ease-in-out;
+    }
+
+
+
+    .perfil {
+        width: 200px;
+        margin-top: 50px;
+        transition: transform 0.8s ease-in-out;
+        /* Transición suave cuando se aplique el transform */
+        animation: tamaño-birrete 2s infinite;
+    }
+
+    /* ventana 4 */
+
+    .u-birrete {
+        width: 150px;
+        /* Tamaño inicial de la imagen */
+        height: auto;
+        transition: transform 0.5s ease-in-out;
+        /* Transición suave cuando se aplique el transform */
+        animation: tamaño-birrete 1.5s infinite;
+        /* Llama a la animación */
+        margin-top: 10px;
+    }
+
+    .invitacion {
+        width: 80%;
+        font-size: 1.8rem;
+        color: #FF0094;
+        font-family: 'Georgia', serif;
+        line-height: 1.6;
+        margin: 0;
+        text-align: center;
+
+    }
+
+    .fecha-container {
+        display: inline-block;
+        position: relative;
+        text-align: center;
+        font-family: 'Georgia', serif;
+    }
+
+    .mes {
+        font-size: 1.5rem;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        text-align: center;
+        margin-bottom: -1rem;
+        /* Ajustar separación con el número */
+        font-weight: bold;
+        display: inline-block;
+        background: linear-gradient(to right, #FF0094, #D17486);
+        -webkit-background-clip: text;
+        color: transparent;
+
+    }
+
+    .dia {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        position: relative;
+    }
+
+    .texto-derecha,
+    .texto-izquierda {
+        font-size: 1rem;
+        font-weight: bold;
+        position: relative;
+        color: #FF0094;
+        padding: 2px 16px;
+        border-top: 2px solid #FF0094;
+        /* Línea dorada arriba */
+        border-bottom: 2px solid #FF0094;
+        /* Línea dorada abajo */
+    }
+
+    .numero {
+        font-size: 2.5rem;
+        font-weight: bold;
+        color: #FF0094;
+        /* Color dorado para el número */
+        padding: 0 1rem;
+        text-shadow: 0 0 5px rgba(255, 255, 255, 0.7);
+        /* Brillo leve */
+    }
+
+
+    .texto-derecha::after {
+        left: 100%;
+        margin-left: 10px;
+    }
+
+    .texto-izquierda::before {
+        right: 100%;
+        margin-right: 10px;
+    }
+
+    .ubicacion-link {
+        display: flex;
+        align-items: center;
+        font-family: 'Georgia', serif;
+        font-size: 20px;
+        color: #FF0094;
+        text-decoration: none;
+        transition: transform 0.5s ease-in-out;
+        /* Transición suave cuando se aplique el transform */
+        animation: tamaño-birrete 0.8s infinite;
+        margin-top: 10px;
+    }
+
+    .icono {
+        width: 30px;
+        height: 30px;
+        margin-right: 5px;
+        transition: transform 0.3s ease;
+    }
+
+    .ubicacion {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .text-pink {
+        color: #FF0094;
+        text-align: center;
+        padding-bottom: 5px;
+        border-bottom: #FF0094 solid 2px;
+        margin-bottom: 10px;
+        font-family: 'Georgia', serif;
+    }
+
+
+    /* Responsividad para pantallas pequeñas */
+    @media (max-width: 768px) {
+        .boton {
+            left: 20%;
+        }
+
+        .derecha {
+            border-radius: 50px 0 0 50px;
+            /* Reduce el redondeo para pantallas pequeñas */
+        }
+
+        .izquierda {
+            border-radius: 0 50px 50px 0;
+            /* Reduce el redondeo para pantallas pequeñas */
+        }
+
+        .title,
+        .title1 {
+            margin: 10px;
+            font-size: 3rem;
+            font-weight: bold;
+
+        }
+
+        .globos {
+            width: 90%;
+        }
+
+        .globo {
+            width: 40%;
+            /* Ajusta los globos para móviles */
+        }
+
+        .perfil {
+            width: 150px;
+            margin-top: 30px;
+            /* Ajusta el perfil para móviles */
+        }
+    }
+
+    /* Responsividad para pantallas muy pequeñas (móviles) */
+    @media (max-width: 480px) {
+        .boton {
+            width: 25%;
+            /* Botón aún más pequeño */
+        }
+
+        .ventana {
+            font-size: 1rem;
+            /* Texto más pequeño */
+        }
+
+        .izquierda,
+        .derecha {
+            width: 70%;
+            /* Ajusta las tapas para móviles */
+        }
+    }

@@ -1,19 +1,101 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Invitación</title>
-    <!-- Open Graph -->
-    <meta property="og:title" content="Estás invitado a mi fiesta">
-    <meta property="og:description" content="No te pierdas esta increíble celebración. ¡Confirma tu asistencia!">
-    <meta property="og:image" content="https://www.ejemplo.com/miimagen.jpg">
-    <meta property="og:url" content="https://www.ejemplo.com/invitacion">
-    <meta property="og:type" content="website">
+    <title>Mi Graduación</title>
+    <link rel="icon" href="resources/imagenes/img/toga.png" type="image/png">
+    <link rel="stylesheet" href="style.css">
+
 </head>
+
 <body>
-    <iframe src="" frameborder="0"></iframe>
-    <h1>Bienvenido a mi invitación</h1>
-    <p>Comparte este enlace con tus amigos.</p>
+    <audio class="musica" id="miMusica">
+        <source src="resources/musicas/TheClimb.m4a" type="audio/mpeg">
+        Tu navegador no soporta el elemento de audio.
+    </audio>
+    <div class="tapa-container">
+        <!-- Tapa de la invitación -->
+        <div class="tapa izquierda">
+
+        </div>
+        <div class="tapa derecha">
+
+        </div>
+        <!-- Botón que abre la tapa -->
+        <button class="boton" onclick="abrirTapa()">
+            <img src="resources/imagenes/iconos/birrete.png" alt="Abrir Tapa">
+        </button>
+    </div>
+    <!-- Ventanas rotativas -->
+    <div class="ventanas-container ">
+        <div class="ventana">
+            <div class="birrete">
+                <img src="resources/imagenes/iconos/img1.png" alt="birrete">
+            </div>
+            <div>
+                <h1 class="title1">mi</h1>
+                <h1 class="title">
+                    graduacion
+                </h1>
+            </div>
+            <h1 class="año">2024</h1>
+        </div>
+        <div class="ventana">
+            <div class="graduado">
+                <img src="resources/imagenes/img/graduada.jpg" alt="graduado" class="imagen-graduado">
+                <h1 class="nombre" id="nombreGraduado"></h1>
+                <h1 class="apellidos" id="apellidosGraduado"></h1>
+            </div>
+            <div class="globos">
+                <img src="resources/imagenes/iconos/globo.png" alt="globo" class="globo">
+                <img src="resources/imagenes/iconos/globo.png" alt="globo" class="globo">
+                <img src="resources/imagenes/iconos/globo.png" alt="globo" class="globo">
+            </div>
+        </div>
+        <div class="ventana">
+            <!-- Imagen superior -->
+            <img src="resources/imagenes/img/toga.png" alt="birrete" class="toga">
+
+            <!-- Texto centrado -->
+            <div class="pergamino">
+                <p id="mensaje" class="mensaje">Después de esfuerzo, dedicación<br>
+                    y crecimiento, estoy lista para <br>
+                    el próximo capítulo. <br>
+                    Será un honor contar con tu <br>
+                    presencia en este día <br>
+                    inolvidable.
+                </p>
+            </div>
+
+            <img src="resources/imagenes/img/perfil.png" alt="graduado" class="perfil">
+        </div>
+        <div class="ventana">
+            <img src="resources/imagenes/img/toga.png" alt="birrete" class="u-birrete">
+            <p class="invitacion">Con gran orgullo y emoción te invito a mi fiesta de graduacion</p>
+            <div class="fecha-container">
+                <div class="mes">DICIEMBRE</div>
+                <div class="dia">
+                    <span class="texto-derecha">VIERNES</span>
+                    <span class="numero">13</span>
+                    <span class="texto-izquierda">17:00 PM</span>
+                </div>
+            </div>
+            <div class="ubicacion">
+                <h2 class="text-pink">Salón de Eventos "La VIÑA"</h2>
+                <h3 class="text-pink">Av German Busch Final #100</h3>
+                <a href="https://maps.app.goo.gl/GW7g8D4DpKRrnZyAA" target="_blank" class="ubicacion-link">
+                    <img src="resources/imagenes/img/ubicacion.png" alt="Icono de ubicación" class="icono">
+                    Ver ubicación
+                </a>
+            </div>
+
+            <h3 class="text-pink">¡TE ESPERO!</h3>
+
+        </div>
+    </div>
+    <script src="scrips.js"></script>
 </body>
+
 </html>
