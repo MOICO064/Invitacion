@@ -444,8 +444,12 @@
     }
 
     .invitacion {
+        border: #FF0094 solid 2px;    
+        border-radius: 30px;
+        background-image: url('resources/imagenes/img/textura-pergamino.avif');
+        padding: 10px;
         width: 80%;
-        font-size: 1.8rem;
+        font-size: 1.5rem;
         color: #FF0094;
         font-family: 'Georgia', serif;
         line-height: 1.6;
@@ -552,7 +556,9 @@
         font-family: 'Georgia', serif;
     }
 
-
+    .espero {
+        margin-bottom: 40px;
+    }
     /* Responsividad para pantallas pequeñas */
     @media (max-width: 768px) {
         .boton {
