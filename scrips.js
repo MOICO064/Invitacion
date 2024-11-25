@@ -91,8 +91,6 @@ function abrirTapa() {
     // Oculta el botón
     document.querySelector('.boton').style.display = 'none';
 
-    // Establece el tiempo de inicio de la música en el segundo 3
-    musica.currentTime = 3;
     // Reproduce la música
     musica.play();
     // Retrasar la aparición de las ventanas (después de que las tapas se abran)
