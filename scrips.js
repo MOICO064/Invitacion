@@ -26,27 +26,6 @@ function siguienteVentana() {
         }
     }
 }
-
-// Función para mostrar la ventana anterior (deslizar hacia abajo)
-function ventanaAnterior() {
-    // Si no estamos en la primera ventana, regresamos a la anterior
-    if (currentIndex > 0) {
-        // Ocultamos la ventana actual
-        ventanas[currentIndex].classList.remove('visible');
-        ventanas[currentIndex].classList.add('hidden');
-
-        // Retrocedemos al índice anterior
-        currentIndex--;
-
-        // Hacemos visible la ventana anterior
-        ventanas[currentIndex].classList.remove('hidden');
-        ventanas[currentIndex].classList.add('visible');
-        if (currentIndex < ventanas.length - 1) {
-            flecha.style.display = 'inline-block';
-        }
-    }
-}
-
 // Detectar el gesto de deslizar hacia arriba o hacia abajo
 let touchStart = 0; // Almacena la posición inicial del toque o desplazamiento
 
