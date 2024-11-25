@@ -382,7 +382,7 @@
         /* Borde del pergamino */
         padding: 40px;
         width: 80%;
-        max-width: 600px;
+        max-width: 700px;
         text-align: center;
         border-radius: 20px;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -657,5 +657,13 @@
         .derecha {
             width: 70%;
             /* Ajusta las tapas para móviles */
+        }
+        .mensaje {
+            font-size: 1.29rem;
+            color: #000;
+            font-family: 'Georgia', serif;
+            line-height: 1.2;
+            margin: 0;
+            visibility: hidden;
         }
     }
