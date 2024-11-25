@@ -1,6 +1,6 @@
 let currentIndex = 0;
 const ventanas = document.querySelectorAll('.ventana');
-const flecha = document.getElementById('flecha');
+const flecha = document.getElementById('anuncio-flotante');
 flecha.style.display = 'none';
 // Función para mostrar la ventana siguiente (deslizar hacia arriba)
 function siguienteVentana() {
@@ -147,7 +147,7 @@ function mostrarNombreYApellido() {
     const delayEntreTextos = 1000; // 2 segundos entre nombre y apellidos
 
     // Mostrar el nombre
-    mostrarLetras('Deymi Dessire', 'nombreGraduado', delayEntreLetras);
+    mostrarLetras('Deimy Desiree', 'nombreGraduado', delayEntreLetras);
 
     // Mostrar los apellidos después de un retraso
     setTimeout(() => {
@@ -181,7 +181,7 @@ function ventana3() {
         if (count < spans.length) {
             spans[count].classList.add('show'); // Hacemos visible la palabra
             count++;
-            setTimeout(showWord, 500); // Espera 500ms antes de mostrar la siguiente palabra
+            setTimeout(showWord, 200); // Espera 500ms antes de mostrar la siguiente palabra
         }
     }
 
